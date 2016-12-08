@@ -19,7 +19,7 @@ public class LogUtils {
 
     private void initLoggerFileHandler() {
         FileHandler fh;
-        final String logPath = "/home/alex/MyLogFile.log";
+        final String logPath = "test.log";
 
         try {
 
