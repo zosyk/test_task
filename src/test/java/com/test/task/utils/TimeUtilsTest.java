@@ -1,5 +1,6 @@
 package com.test.task.utils;
 
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,65 +11,47 @@ import static org.junit.Assert.assertTrue;
  */
 public class TimeUtilsTest {
 
-    private TimeUtils timeUtils;
+    private TimeUtils timeUtils = new TimeUtils();
 
-    @Before
-    public void initData() {
-
-        timeUtils = new TimeUtils();
-
+    @Test
+    public void showCorrectGreetingMessageWhenLanguageIsEnglishAndTimeIsSixOclock() {
+        assertTrue(timeUtils.showGreetingMessage(6, "en").equals("Good morning, World!"));
     }
 
     @Test
-    public void showGreetingMessageTest() {
-
-
-
-        /*for english locale*/
-        String lang = "en";
-
-          /*test for morning*/
-        int hour = 6;
-
-        assertTrue(timeUtils.showGreetingMessage(hour, lang).equals("Good morning, World!"));
-
-           /*test for day*/
-        hour = 11;
-
-        assertTrue(timeUtils.showGreetingMessage(hour, lang).equals("Good day, World!"));
-
-           /*test for evening*/
-        hour = 21;
-
-        assertTrue(timeUtils.showGreetingMessage(hour, lang).equals("Good evening, World!"));
-
-           /*test for night*/
-        hour = 23;
-
-        assertTrue(timeUtils.showGreetingMessage(hour, lang).equals("Good night, World!"));
-
-        /*for ru locale*/
-        lang = "ru";
-
-         /*test for morning*/
-        hour = 6;
-
-        assertTrue(timeUtils.showGreetingMessage(hour, lang).equals("Доброе утро, Мир!"));
-
-           /*test for day*/
-        hour = 11;
-
-        assertTrue(timeUtils.showGreetingMessage(hour, lang).equals("Добрый день, Мир!"));
-
-           /*test for evening*/
-        hour = 21;
-
-        assertTrue(timeUtils.showGreetingMessage(hour, lang).equals("Добрый вечер, Мир!"));
-
-           /*test for night*/
-        hour = 23;
-
-        assertTrue(timeUtils.showGreetingMessage(hour, lang).equals("Доброй ночи, Мир!"));
+    public void showCorrectGreetingMessageWhenLanguageIsEnglishAndTimeIsElevenOclock() {
+        assertTrue(timeUtils.showGreetingMessage(11, "en").equals("Good day, World!"));
     }
 
+    @Test
+    public void showCorrectGreetingMessageWhenLanguageIsEnglishAndTimeIsTwentyOneOclock() {
+        assertTrue(timeUtils.showGreetingMessage(21, "en").equals("Good evening, World!"));
+    }
+
+    @Test
+    public void showCorrectGreetingMessageWhenLanguageIsEnglishAndTimeIsTwentyThreeOclock() {
+        assertTrue(timeUtils.showGreetingMessage(23, "en").equals("Good night, World!"));
+    }
+
+    @Test
+    public void showCorrectGreetingMessageWhenLanguageIsRussionAndTimeIsSixOclock() {
+        assertTrue(timeUtils.showGreetingMessage(6, "ru").equals("Доброе утро, Мир!"));
+    }
+
+    @Test
+    public void showCorrectGreetingMessageWhenLanguageIsRussionAndTimeIsElevenOclock() {
+        assertTrue(timeUtils.showGreetingMessage(11, "ru").equals("Добрый день, Мир!"));
+    }
+
+    @Test
+    public void showCorrectGreetingMessageWhenLanguageIsRussionAndTimeIsTwentyOneOclock() {
+        assertTrue(timeUtils.showGreetingMessage(21, "ru").equals("Добрый вечер, Мир!"));
+    }
+
+    @Test
+    public void showCorrectGreetingMessageWhenLanguageIsRussionAndTimeIsTwentyThreeOclock() {
+        assertTrue(timeUtils.showGreetingMessage(23, "ru").equals("Доброй ночи, Мир!"));
+    }
+    
+    
 }
